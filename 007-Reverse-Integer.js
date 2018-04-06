@@ -23,7 +23,6 @@
  * @return {number}
  */
 var reverse = function (x) {
-
     var sign = x >= 0 ? 1 : -1;
     x = Math.abs(x);
 
