@@ -19,17 +19,17 @@
 
 	if (len < 2) return;
 
-    for (var i = nums.length - 1; i > 0 && nums[i] <= nums[i - 1]; i--);
+    for (var i = nums.length - 1; i > 0 && nums[i] <= nums[i - 1]; i--); // 从右往左找到第一个比右边小的数，记录其位置为 m;
 
 	if (i === 0) {
     	reverse(0, nums.length - 1);
       	return;
  	}
 
- 	for(var j = i + 1; j < nums.length && nums[i - 1] < nums[j]; j++);
+ 	for(var j = i + 1; j < nums.length && nums[i - 1] < nums[j]; j++); // 再从右往左找到比 m 位置大的数中最小的一个，记录其位置为 n
 
- 	swap(i - 1, j - 1);
- 	reverse(i, nums.length - 1);
+ 	swap(i - 1, j - 1); // 然后交换 m, n 位置的数
+ 	reverse(i, nums.length - 1); // 对 m 之后的位置，进行升序排列
      
     function reverse(start, end) {
         while (start < end) {
