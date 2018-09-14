@@ -20,7 +20,7 @@ var search = function(nums, target) {
     var high = nums.length - 1;
     
     while (low <= high) {
-        var mid = (high + low) / 2;
+        var mid = Math.floor((high + low) / 2);
         
         if (target < nums[mid]) {
             if (nums[mid] < nums[high]) { // 右侧排好序了
