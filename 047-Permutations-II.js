@@ -56,3 +56,37 @@ function permuteSwap(nums, i, j) {
     nums[i] = nums[j];
     nums[j] = tmp;
 }
+
+// 解法二
+var permuteUnique2 = function (nums) {
+    var res = [];
+    var temp = [];
+    var used = [];
+
+    nums.sort((b, a) => b - a);
+    
+    permuteUnique2dfs(res, temp, nums, used);
+
+    return res;
+};
+
+function permuteUnique2dfs(res, temp, nums, used) {
+    if (nums.length === temp.length) {
+        return res.push(temp.slice());
+    }
+
+    for (var i = 0; i < nums.length; i++) {
+        if (used[i]) continue;
+
+        if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
+
+        used[i] = true;
+        temp.push(nums[i]);
+        permuteUnique2dfs(res, temp, nums, used);
+
+        used[i] = false;
+        temp.length -= 1;        
+    }
+}
+
+console.log(permute2([2,2,1,1]))
