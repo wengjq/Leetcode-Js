@@ -31,16 +31,27 @@
  * @return {string}
  */
 var getPermutation = function(n, k) {
-    var res = "";
-    var num = "123456789";
-    var f = [];
-    for (var i = 1; i < n; ++i) f[i] = f[i - 1] * i;
-    --k;
-    for (var i = n; i >= 1; --i) {
-        var j = k / f[i - 1];
-        k %= f[i - 1];
-        res.push(num[j]);
-        num.erase(j, 1);
-    }
-    return res;
+    /**
+ * @param {number} n
+ * @param {number} k
+ * @return {string}
+ */
+var getPermutation = function(n, k) {
+  var res = "";
+  var num = [1,2,3,4,5,6,7,8,9];
+  var f = [1];
+  
+  for (var i = 1; i < n; ++i) f[i] = f[i - 1] * i;
+
+  --k;
+
+  for (var i = n; i >= 1; --i) {
+    var j = Math.floor(k / f[i - 1]);
+    k %= f[i - 1];
+    res += num[j];
+    num.splice(j, 1);
+  }
+  
+  return res;
+};
 };
