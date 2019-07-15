@@ -31,12 +31,6 @@
  * @return {string}
  */
 var getPermutation = function(n, k) {
-    /**
- * @param {number} n
- * @param {number} k
- * @return {string}
- */
-var getPermutation = function(n, k) {
   var res = "";
   var num = [1,2,3,4,5,6,7,8,9];
   var f = [1];
@@ -53,5 +47,4 @@ var getPermutation = function(n, k) {
   }
   
   return res;
-};
 };
