@@ -28,6 +28,6 @@ var deleteDuplicates = function(head) {
 // 用递归
 var deleteDuplicates2 = function(head) {
   if (!head || !head.next) return head;
-   head.next = deleteDuplicates2(head.next);
-   return (head.val == head.next.val) ? head.next : head;
+  head.next = deleteDuplicates2(head.next);
+  return (head.val == head.next.val) ? head.next : head;
 };
